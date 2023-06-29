@@ -1,0 +1,27 @@
+# permissions for end users to view myobjects.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: myobject-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: general
+    app.kubernetes.io/part-of: general
+    app.kubernetes.io/managed-by: kustomize
+  name: myobject-viewer-role
+rules:
+- apiGroups:
+  - test.general
+  resources:
+  - myobjects
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - test.general
+  resources:
+  - myobjects/status
+  verbs:
+  - get

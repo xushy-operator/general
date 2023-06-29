@@ -1,0 +1,31 @@
+# permissions for end users to edit myobjects.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: myobject-editor-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: general
+    app.kubernetes.io/part-of: general
+    app.kubernetes.io/managed-by: kustomize
+  name: myobject-editor-role
+rules:
+- apiGroups:
+  - test.general
+  resources:
+  - myobjects
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - test.general
+  resources:
+  - myobjects/status
+  verbs:
+  - get

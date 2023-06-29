@@ -1,0 +1,12 @@
+apiVersion: test.general/v1
+kind: MyObject
+metadata:
+  labels:
+    app.kubernetes.io/name: myobject
+    app.kubernetes.io/instance: myobject-sample
+    app.kubernetes.io/part-of: general
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: general
+  name: myobject-sample
+spec:
+  # TODO(user): Add fields here
